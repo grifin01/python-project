@@ -129,13 +129,13 @@ import time
 hosts = {'drive.google.com': None, 'mail.google.com': None, 'google.com': None}
 
 while True:
-  for host in hosts:
+  for i in hosts:
     time.sleep(3)
-    ip = socket.gethostbyname(host)
-    print(host + ' - ' + ip)
-    if ip != hosts[host]:
-      print('[ERROR] ' + host + ' IP mismatch: ' + str(hosts[host]) + ' ' + ip)
-      hosts[host] = ip
+    ip = socket.gethostbyname(i)
+    print(i + ' - ' + ip)
+    if ip != hosts[i]:
+      print('[ERROR] ' + i + ' IP mismatch: ' + str(hosts[i]) + ' ' + ip)
+      hosts[i] = ip
 ```
 ### Вывод скрипта при запуске при тестировании:
 ```bash
