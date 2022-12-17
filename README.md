@@ -39,12 +39,27 @@ for result in result_os.split('\n'):
 ```
 
 ### Ваш скрипт:
-```bash
-???
+```python
+#!/usr/bin/env python3
+
+import os
+
+bash_command = ["cd ~/netology/sysadm-homeworks", "git status"]
+result_os = os.popen(' && '.join(bash_command)).read()
+repo_location = os.popen('pwd')
+print('Current location:', repo_location.read())
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(prepare_result)
 ```
 ### Вывод скрипта при запуске при тестировании:
-```bash
-???
+```python
+vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py 
+Current location: /home/vish/Netology/sysadm-homeworks
+
+file1.txt
+git_script.py
 ```
 
 ---
