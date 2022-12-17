@@ -46,8 +46,8 @@ import os
 
 bash_command = ["cd ~/netology/sysadm-homeworks", "git status"]
 result_os = os.popen(' && '.join(bash_command)).read()
-repo_location = os.popen('pwd')
-print('Current location:', repo_location.read())
+repo_location = os.getcwd()
+print('Working directory:', repo_location)
 for result in result_os.split('\n'):
     if result.find('modified') != -1:
         prepare_result = result.replace('\tmodified:   ', '')
@@ -56,12 +56,14 @@ for result in result_os.split('\n'):
 ### Вывод скрипта при запуске при тестировании:
 ```python
 vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py 
-Current location: /home/vish/Netology/sysadm-homeworks
+Working directory: /home/vish/Netology/sysadm-homeworks
 
 file1.txt
 git_script.py
 ```
-
+Ошибки:
+1. Переменная `is_change` лишняя, т.к. нигде не используется
+2. Команда break прерывала обработку при первом совпадении, поэтому выводился лишь один файл - убрал
 ---
 
 ## Задание 3
