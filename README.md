@@ -121,17 +121,31 @@ Current working directory is not a git repository
 
 ### Ваш скрипт:
 ```python
+#!/usr/bin/env python3
 
+import socket
+import time
+
+hosts = {'drive.google.com': None, 'mail.google.com': None, 'google.com': None}
+
+while True:
+  for host in hosts:
+    time.sleep(3)
+    ip = socket.gethostbyname(host)
+    print(host + ' - ' + ip)
+    if ip != hosts[host]:
+      print('[ERROR] ' + host + ' IP mismatch: ' + str(hosts[host]) + ' ' + ip)
+      hosts[host] = ip
 ```
 ### Вывод скрипта при запуске при тестировании:
 ```bash
 vish@DevOps:~/Netology/sysadm-homeworks$ python3 task_4.py 
 drive.google.com - 216.58.208.206
-[ERROR] drive.google.com IP mistmatch: None 216.58.208.206
+[ERROR] drive.google.com IP mismatch: None 216.58.208.206
 mail.google.com - 172.217.16.37
-[ERROR] mail.google.com IP mistmatch: None 172.217.16.37
+[ERROR] mail.google.com IP mismatch: None 172.217.16.37
 google.com - 216.58.209.14
-[ERROR] google.com IP mistmatch: None 216.58.209.14
+[ERROR] google.com IP mismatch: None 216.58.209.14
 drive.google.com - 216.58.208.206
 mail.google.com - 172.217.16.37
 google.com - 216.58.209.14
