@@ -89,7 +89,7 @@ for result in result_os.split('\n'):
         print('Current working directory is not a git repository')
 ```
 ### Вывод скрипта при запуске при тестировании:
-```python
+```bash
 vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py
 Working directory:' /home/vish/Netology/sysadm-homeworks
 /home/vish/Netology/sysadm-homeworksfile1.txt
@@ -120,10 +120,26 @@ Current working directory is not a git repository
 Также, должна быть реализована возможность проверки текущего IP сервиса c его IP из предыдущей проверки. Если проверка будет провалена - оповестить об этом в стандартный вывод сообщением: [ERROR] <URL сервиса> IP mismatch: <старый IP> <Новый IP>. Будем считать, что наша разработка реализовала сервисы: `drive.google.com`,` mail.google.com`, `google.com`.
 
 ### Ваш скрипт:
-```bash
-???
+```python
+
 ```
 ### Вывод скрипта при запуске при тестировании:
 ```bash
-???
+vish@DevOps:~/Netology/sysadm-homeworks$ python3 task_4.py 
+drive.google.com - 216.58.208.206
+[ERROR] drive.google.com IP mistmatch: None 216.58.208.206
+mail.google.com - 172.217.16.37
+[ERROR] mail.google.com IP mistmatch: None 172.217.16.37
+google.com - 216.58.209.14
+[ERROR] google.com IP mistmatch: None 216.58.209.14
+drive.google.com - 216.58.208.206
+mail.google.com - 172.217.16.37
+google.com - 216.58.209.14
+drive.google.com - 216.58.208.206
+mail.google.com - 172.217.16.37
+google.com - 216.58.209.14
+drive.google.com - 216.58.208.206
+mail.google.com - 172.217.16.37
+google.com - 216.58.209.14
+drive.google.com - 216.58.208.206
 ```
