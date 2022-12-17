@@ -89,8 +89,18 @@ for result in result_os.split('\n'):
         print('Current working directory is not a git repository')
 ```
 ### Вывод скрипта при запуске при тестировании:
-```bash
-???
+```python
+vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py
+Working directory:' /home/vish/Netology/sysadm-homeworks
+/home/vish/Netology/sysadm-homeworksfile1.txt
+/home/vish/Netology/sysadm-homeworksgit_script.py
+vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py ~/Netology/sysadm-homeworks/
+Working directory:' /home/vish/Netology/sysadm-homeworks/
+/home/vish/Netology/sysadm-homeworks/file1.txt
+/home/vish/Netology/sysadm-homeworks/git_script.py
+vish@DevOps:~/Netology/sysadm-homeworks$ python3 git_script.py ~/
+Working directory:' /home/vish/
+Current working directory is not a git repository
 ```
 
 ---
