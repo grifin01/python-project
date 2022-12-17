@@ -69,8 +69,22 @@ git_script.py
 Доработать скрипт выше так, чтобы он не только мог проверять локальный репозиторий в текущей директории, но и умел воспринимать путь к репозиторию, который мы передаём как входной параметр. Мы точно знаем, что начальство коварное и будет проверять работу этого скрипта в директориях, которые не являются локальными репозиториями.
 
 ### Ваш скрипт:
-```bash
-???
+```python
+import os
+import sys
+
+work_dir = os.getcwd()
+if len(sys.argv)>=2:
+    work_dir = sys.argv[1]
+print("Working directory:'", work_dir)
+bash_command = ["cd " +work_dir, "git status 2>&1"]
+result_os = os.popen(' && '.join(bash_command)).read()
+for result in result_os.split('\n'):
+    if result.find('modified') != -1:
+        prepare_result = result.replace('\tmodified:   ', '')
+        print(work_dir+prepare_result)
+    elif result.find('fatal') != -1:
+        print('Current working directory is not a git repository')
 ```
 ### Вывод скрипта при запуске при тестировании:
 ```bash
